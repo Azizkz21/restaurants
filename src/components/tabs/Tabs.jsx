@@ -1,9 +1,9 @@
-export const Tabs = ({ restaurants, renderRestaurant }) => {
+export const Tabs = ({ restaurants, activeChangeRestaurant }) => {
   if (!restaurants.length) {
     return null;
   }
   return (
-    <div>
+    <div >
       <ul
         style={{
           listStyle: "none",
@@ -16,7 +16,7 @@ export const Tabs = ({ restaurants, renderRestaurant }) => {
           <li>
             <button
               style={{ cursor: "pointer", textAlign: "center", padding: 10 }}
-              onClick={() => renderRestaurant(restaurant.name)}
+              onClick={() => activeChangeRestaurant(restaurant.id)}
             >
               {restaurant.name}
             </button>

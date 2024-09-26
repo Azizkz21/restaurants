@@ -1,10 +1,10 @@
 import { Count } from "../count/Count";
 
-export const Restaurant = ({  name, menu, reviews }) => {
+export const Restaurant = ({ id, name, menu, reviews }) => {
   return (
-    <section>
+    <section id={id}>
       <div>
-        <div >
+        <div>
           {menu.length > 0 ? (
             <div>
               <h2>Меню</h2>

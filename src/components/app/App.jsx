@@ -5,11 +5,11 @@ import { Restaurant } from "../restaurants/Restaurants";
 import { Tabs } from "../tabs/Tabs";
 
 export const App = ({ title }) => {
-  const [restaurantName, setRestaurantName] = useState(restaurants[0].name);
+  const [restaurantId, setRestaurantId] = useState(restaurants[0].id);
 
-  const renderRestaurant = (name) => {
-    if (restaurantName !== name) {
-      setRestaurantName(name);
+  const activeChangeRestaurant = (id) => {
+    if (restaurantId !== id) {
+      setRestaurantId(id);
     }
   };
 
@@ -17,12 +17,13 @@ export const App = ({ title }) => {
     <div>
       <Layout>
         <h1>{title}</h1>
-        <Tabs restaurants={restaurants} renderRestaurant={renderRestaurant} />
-        {restaurants
-          .filter((restaurant) => restaurant.name === restaurantName)
-          .map(({ name, menu, reviews }) => (
-            <Restaurant name={name} menu={menu} reviews={reviews} />
-          ))}
+        <Tabs
+          restaurants={restaurants}
+          activeChangeRestaurant={activeChangeRestaurant}
+        />
+        <Restaurant
+          {...restaurants.find((restaurants) => restaurants.id == restaurantId)}
+        />
       </Layout>
     </div>
   );
