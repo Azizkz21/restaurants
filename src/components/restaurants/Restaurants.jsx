@@ -1,20 +1,20 @@
 import { Count } from "../count/Count";
 
-export const Restaurant = ({ id, name, menu, reviews }) => {
+export const Restaurant = ({  name, menu, reviews }) => {
   return (
     <section>
       <div>
-        <div data-id={id}>
+        <div >
           {menu.length > 0 ? (
             <div>
               <h2>Меню</h2>
               <h3>{name}</h3>
               <ul>
-                {menu.map(({ name, price, ingredients }) => (
+                {menu.map((menu) => (
                   <li>
-                    <h3>{name}</h3>
-                    <p>{ingredients}</p>
-                    <span>{price}</span>
+                    <h3>{menu.name}</h3>
+                    <p>{menu.ingredients}</p>
+                    <span>{menu.price}</span>
                     <Count />
                   </li>
                 ))}
@@ -28,11 +28,11 @@ export const Restaurant = ({ id, name, menu, reviews }) => {
             <div>
               <h2>Отзывы</h2>
               <ul>
-                {reviews.map(({ user, text, rating }) => (
+                {reviews.map((review) => (
                   <li>
-                    <h3>{user}</h3>
-                    <p>{text}</p>
-                    <span>{rating}</span>
+                    <h3>{review.user}</h3>
+                    <p>{review.text}</p>
+                    <span>{review.rating}</span>
                   </li>
                 ))}
               </ul>

@@ -1,20 +1,11 @@
-import { restaurants } from "../materials/mock";
-
-
+import { Footer } from "../footer/Footer";
+import { Header } from "../header/Header";
 export const Layout = ({ children }) => {
   return (
-    <div>     
-      <header>
-        <nav>
-          <ul>
-            {restaurants.map(({ id, name }) => (
-              <li data-id={id}>{name}</li>
-            ))}
-          </ul>
-        </nav>
-      </header>
+    <div>
+      <Header />
       <main>{children}</main>
-      <footer>Footer</footer>
+      <Footer />
     </div>
   );
 };
