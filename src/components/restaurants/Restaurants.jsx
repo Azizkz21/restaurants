@@ -1,42 +1,22 @@
 import { Count } from "../count/Count";
+import { Menu } from "../menu/Menu";
+import { Reviews } from "../reviews/Reviews";
 
-export const Restaurant = ({ id, name, menu, reviews }) => {
+export const Restaurant = ({ name, menu, reviews }) => {
+  if (!name) {
+    return null;
+  }
+
   return (
-    <section id={id}>
+    <section>
       <div>
         <div>
-          {menu.length > 0 ? (
-            <div>
-              <h2>Меню</h2>
-              <h3>{name}</h3>
-              <ul>
-                {menu.map((menu) => (
-                  <li>
-                    <h3>{menu.name}</h3>
-                    <p>{menu.ingredients}</p>
-                    <span>{menu.price}</span>
-                    <Count />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <div>Блюда не готовы</div>
-          )}
-
-          {reviews.length > 0 ? (
-            <div>
-              <h2>Отзывы</h2>
-              <ul>
-                {reviews.map((review) => (
-                  <li>
-                    <h3>{review.user}</h3>
-                    <p>{review.text}</p>
-                    <span>{review.rating}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <h2>Меню</h2>
+          <h3>{name}</h3>
+          {menu.length ? <Menu menu={menu} /> : <div>Блюда не готовы</div>}
+          <Count />
+          {reviews.length ? (
+            <Reviews reviews={reviews} />
           ) : (
             <div>Пока нет отзывов. Вы можете стать первым</div>
           )}

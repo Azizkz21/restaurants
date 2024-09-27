@@ -6,4 +6,4 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 // компонент верстки карточки товара
-root.render(<App title="Рестораны"/>);
+root.render(<App />);
