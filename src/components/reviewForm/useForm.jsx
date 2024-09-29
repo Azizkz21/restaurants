@@ -3,7 +3,7 @@ import { useReducer } from "react";
 const DEFAULT_FORM_VALUE = {
   name: "",
   comment: "",
-  rating: 0,
+  rating: 1,
 };
 
 const SET_NAME_ACTION_TYPE = "setName";

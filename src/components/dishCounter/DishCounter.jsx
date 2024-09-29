@@ -9,9 +9,5 @@ export const DishCounter = () => {
   const decrement = () =>
     setValue((prevState) => (prevState > 0 ? prevState - 1 : prevState));
 
-  useEffect(() => {
-    value;
-  }, [value]);
-
   return <Counter value={value} increment={increment} decrement={decrement} />;
 };
