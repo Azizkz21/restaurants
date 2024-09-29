@@ -1,0 +1,11 @@
+.formInner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
