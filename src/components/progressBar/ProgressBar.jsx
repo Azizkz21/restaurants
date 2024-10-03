@@ -1,17 +1,15 @@
 import { useProgress } from "./useProgress";
+import classNames from "classnames";
+import styles from "./progress.module.scss";
 
 export const ProgressBar = () => {
   const progress = useProgress();
 
   return (
     <div
+      className={classNames(styles.pogressBar)}
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        height: "10px",
         width: `${progress}%`,
-        backgroundColor: "blue",
       }}
     ></div>
   );

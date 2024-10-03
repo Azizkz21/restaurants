@@ -1,0 +1,21 @@
+#root {
+  flex-grow: 1;
+}
+
+.App {
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color-Page);
+  color: var(--color-main);
+}
+
+
+.page-main {
+  flex-grow: 1;
+}
+
+.footer {
+  margin-top: auto;
+}

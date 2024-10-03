@@ -1,6 +1,7 @@
 import { Counter } from "../counter/Counter";
 import { useForm } from "./useForm";
-import reviewForm from "./reviewForm.module.css";
+import style from "./reviewForm.module.scss";
+import classNames from "classnames";
 
 export const ReviewForm = () => {
   const { name, comment, rating, setName, setComment, setRating, setClear } =
@@ -24,14 +25,16 @@ export const ReviewForm = () => {
 
   return (
     <form method="get" onSubmit={(e) => e.preventDefault()}>
-      <div className={reviewForm.formInner}>
-        <ul className={reviewForm.formList}>
-          <li>
-            <label htmlFor="reviewsUserName">Имя</label>
+      <div className={classNames(style.form__inner)}>
+        <ul className={classNames(style.form__list)}>
+          <li className={classNames(style.form__item)}>
+            <label htmlFor="reviewsUserName">Имя:</label>
             <input
+              className={classNames(style.form__userName)}
               id="reviewsUserName"
               type="text"
               value={name}
+              placeholder="Введите ваше имя"
               onChange={(event) => {
                 setName(event.target.value);
               }}
@@ -39,11 +42,12 @@ export const ReviewForm = () => {
             ></input>
           </li>
         </ul>
-        <div>
+        <div className={classNames(style.form__commentBlock)}>
           <textarea
             id="reviewsUserComment"
             name="reviewsUserComment"
             value={comment}
+            placeholder="Введите ваш комментарий"
             onChange={(event) => {
               setComment(event.target.value);
             }}
@@ -53,7 +57,9 @@ export const ReviewForm = () => {
           <Counter value={rating} increment={increment} decrement={decrement} />
         </div>
         <div>
-          <button onClick={setClear}>Clear</button>
+          <button className={classNames(style.form__clear)} onClick={setClear}>
+            Clear
+          </button>
         </div>
       </div>
     </form>

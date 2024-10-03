@@ -1,0 +1,21 @@
+.button__tab {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.current__active {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-main);
+}

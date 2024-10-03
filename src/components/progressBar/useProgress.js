@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useProgress = () => {
-  const [percent, setPercent] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
@@ -10,7 +10,7 @@ export const useProgress = () => {
         document.documentElement.clientHeight;
       const scrollTop = document.documentElement.scrollTop;
       const scrollPercent = (scrollTop / height) * 100;
-      setPercent(scrollPercent);
+      setProgress(scrollPercent);
     };
     window.addEventListener("scroll", onScroll);
 
@@ -19,5 +19,5 @@ export const useProgress = () => {
     };
   }, []);
 
-  return percent;
+  return progress;
 };

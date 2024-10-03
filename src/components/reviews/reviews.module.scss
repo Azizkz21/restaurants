@@ -1,0 +1,17 @@
+.reviews__inner {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.reviews__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.reviews__item{
+    border: 2px solid var(--background-color-Accent);
+    padding: 5px;
+}
