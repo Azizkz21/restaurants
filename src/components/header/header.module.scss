@@ -1,0 +1,14 @@
+.headerWrapper {
+  min-width: 320px;
+  min-height: 83px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+
+  background-color: #000;
+}
+
+.headerWrapper h2 {
+  color: #fff;
+}

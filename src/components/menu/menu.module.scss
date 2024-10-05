@@ -1,0 +1,33 @@
+
+
+.menuList {
+  display: grid;
+  grid-template-columns: 400px;
+  gap: 15px;
+}
+
+.menuItem {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.menuBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menuBlock h3 {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.menuBlock p {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.menuBlock span {
+  font-size: 18px;
+  line-height: 18px;
+}

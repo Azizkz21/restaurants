@@ -1,10 +1,9 @@
+import classNames from "classnames";
+import style from "./tab.module.scss";
+
 export const Tab = ({ title, onClick, isActive }) => {
   return (
-    <button
-      style={{ cursor: "pointer", textAlign: "center", padding: 10 }}
-      disabled={isActive}
-      onClick={onClick}
-    >
+    <button className={style.buttonTab} disabled={isActive} onClick={onClick}>
       {title}
     </button>
   );

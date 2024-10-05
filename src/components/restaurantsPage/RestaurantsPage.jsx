@@ -2,6 +2,8 @@ import { useState } from "react";
 import { restaurants } from "../materials/mock";
 import { Restaurant } from "../restaurants/Restaurants";
 import { Tab } from "../tab/Tab";
+import style from "./restaurantsPage.module.scss";
+
 
 export const RestaurantsPage = ({ title }) => {
   const [activeRestaurantId, setActiveRestaurantId] = useState(
@@ -19,25 +21,33 @@ export const RestaurantsPage = ({ title }) => {
   };
 
   return (
-    <div>
-      <h1>{title}</h1>
-      {restaurants.map(({ name, id }) => (
-        <Tab
-          key={id}
-          title={name}
-          onClick={() => activeChangeRestaurant(id)}
-          isActive={id === activeRestaurant}
-        />
-      ))}
+    <div className={style.restaurantsPageWrapper}>
+      <h1 className={"visuallyHidden"}>{title}</h1>
+      <nav className={style.restaurantsPageNav}>
+        <ul className={style.restaurantsPageList}>
+          {restaurants.map(({ name, id }) => (
+            <li className={style.restaurantsPageItem} key={id}>
+              <Tab
+                key={id}
+                title={name}
+                onClick={() => activeChangeRestaurant(id)}
+                isActive={id === activeRestaurant}
+              />
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-      {activeRestaurant && (
-        <Restaurant
-          key={activeRestaurant.id}
-          name={activeRestaurant.name}
-          menu={activeRestaurant.menu}
-          reviews={activeRestaurant.reviews}
-        />
-      )}
+      <div className={style.restaurantsPageMenu}>
+        {activeRestaurant && (
+          <Restaurant
+            key={activeRestaurant.id}
+            name={activeRestaurant.name}
+            menu={activeRestaurant.menu}
+            reviews={activeRestaurant.reviews}
+          />
+        )}
+      </div>
     </div>
   );
 };

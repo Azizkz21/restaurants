@@ -1,9 +1,16 @@
+import style from "./counter.module.scss";
+
 export const Counter = ({ value, increment, decrement }) => {
   return (
-    <div>
-      <button onClick={increment}>+</button>
-      {value}
-      <button onClick={decrement}>-</button>
+    <div className={style.counterBlock}>
+      <button className={style.button} onClick={increment}>
+        <span className={style.counterPlus}>+</span>
+      </button>
+      <span className={style.counterValue}>{value}</span>
+
+      <button className={style.button} onClick={decrement}>
+        <span className={style.counterMinus}>-</span>
+      </button>
     </div>
   );
 };
