@@ -4,10 +4,10 @@ import style from "./reviews.module.scss";
 
 export const Reviews = ({ reviews }) => {
   return (
-    <div className={classNames(style.reviews__inner)}>
-      <ul className={classNames(style.reviews__list)}>
+    <div className={style.reviewsInner}>
+      <ul className={style.reviewsList}>
         {reviews.map(({ id, user, text, rating }) => (
-          <li className={classNames(style.reviews__item)} key={id}>
+          <li className={style.reviewsItem} key={id}>
             <Review user={user} text={text} rating={rating} />
           </li>
         ))}

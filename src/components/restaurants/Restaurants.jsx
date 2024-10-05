@@ -2,7 +2,6 @@ import { DishCounter } from "../dishCounter/DishCounter";
 import { Menu } from "../menu/Menu";
 import { ReviewForm } from "../reviewForm/ReviewForm";
 import { Reviews } from "../reviews/Reviews";
-import classNames from "classnames";
 import style from "./restaurants.module.scss";
 
 export const Restaurant = ({ name, menu, reviews }) => {
@@ -12,18 +11,18 @@ export const Restaurant = ({ name, menu, reviews }) => {
 
   return (
     <section>
-      <div className={classNames(style["restaurants_wrapper"])}>
-        <div className={classNames(style["restaurants_title"])}>
+      <div className={style.restaurantsWrapper}>
+        <div className={style.restaurantsTitle}>
           <h2>Меню</h2>
         </div>
 
-        <div className={classNames(style["restaurants_menu"])}>
+        <div className={style.restaurantsMenu}>
           <h2>{name}</h2>
           {menu.length ? <Menu menu={menu} /> : <div>Блюда не готовы</div>}
           <DishCounter />
         </div>
 
-        <div className={classNames(style["restaurants_reviews"])}>
+        <div className={style.restaurantsReviews}>
           {reviews.length ? (
             <Reviews reviews={reviews} />
           ) : (

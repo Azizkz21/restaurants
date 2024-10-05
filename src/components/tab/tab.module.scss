@@ -1,4 +1,4 @@
-.button__tab {
+.buttonTab {
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -11,7 +11,7 @@
   }
 }
 
-.current__active {
+.currentActive {
   position: absolute;
   content: "";
   bottom: 0;

@@ -1,22 +1,22 @@
-.form__inner {
+.formInner {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.form__list {
+.formList {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.form__item {
+.formItem {
   max-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.form__userName {
+.formUserName {
   max-width: 300px;
   padding: 5px 0 5px 10px;
   border: 2px solid var(--counterBtn);
@@ -36,11 +36,11 @@
   }
 }
 
-.form__commentBlock {
+.formCommentBlock {
  height: 200px;
 }
 
-.form__commentBlock textarea {
+.formCommentBlock textarea {
   max-width: 300px;
   max-height: 200px;
   width: 100%;
@@ -52,7 +52,7 @@
 
   padding: 5px;
 }
-.form__clear {
+.formClear {
   text-align: center;
   text-transform: uppercase;
   font-size: 24px;

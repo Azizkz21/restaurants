@@ -1,4 +1,4 @@
-.restaurants_wrapper {
+.restaurantsWrapper {
   min-width: 320px;
   display: flex;
   flex-direction: column;
@@ -7,23 +7,23 @@
 
 
 
-.restaurants_title h2 {
+.restaurantsTitle h2 {
   font-size: 36px;
   line-height: 36px;
 }
 
-.restaurants_menu{
+.restaurantsMenu{
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.restaurants_menu h2 {
+.restaurantsMenu h2 {
     font-size: 36px;
     line-height: 36px;
 }
 
-.restaurants_reviews{
+.restaurantsReviews{
   display: flex;
   flex-direction: column;
   gap: 10px;

@@ -1,10 +1,10 @@
-.counter__block {
+.counterBlock {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.counter__button {
+.button {
   position: relative;
   width: 40px;
   height: 40px;
@@ -28,7 +28,7 @@
   }
 }
 
-.counter__button span {
+.button span {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,11 +37,11 @@
   margin: auto auto;
 }
 
-.counter__button .counter__plus {
+.button .counterPlus {
   transform: translateY(5%);
 }
 
-.counter__value{
+.counterValue{
     font-size: 24px;
     line-height: 24px;
 }

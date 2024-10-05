@@ -3,7 +3,7 @@ import { restaurants } from "../materials/mock";
 import { Restaurant } from "../restaurants/Restaurants";
 import { Tab } from "../tab/Tab";
 import style from "./restaurantsPage.module.scss";
-import classNames from "classnames";
+
 
 export const RestaurantsPage = ({ title }) => {
   const [activeRestaurantId, setActiveRestaurantId] = useState(
@@ -21,12 +21,12 @@ export const RestaurantsPage = ({ title }) => {
   };
 
   return (
-    <div className={classNames(style["restaurantsPage__wrapper"])}>
-      <h1 className={"visually-hidden"}>{title}</h1>
-      <nav className={classNames(style["restaurantsPage__nav"])}>
-        <ul className={classNames(style["restaurantsPage__list"])}>
+    <div className={style.restaurantsPageWrapper}>
+      <h1 className={"visuallyHidden"}>{title}</h1>
+      <nav className={style.restaurantsPageNav}>
+        <ul className={style.restaurantsPageList}>
           {restaurants.map(({ name, id }) => (
-            <li className={classNames(style["restaurantsPage__item"])} key={id}>
+            <li className={style.restaurantsPageItem} key={id}>
               <Tab
                 key={id}
                 title={name}
@@ -38,7 +38,7 @@ export const RestaurantsPage = ({ title }) => {
         </ul>
       </nav>
 
-      <div className={classNames(style["restaurantsPage__menu"])}>
+      <div className={style.restaurantsPageMenu}>
         {activeRestaurant && (
           <Restaurant
             key={activeRestaurant.id}

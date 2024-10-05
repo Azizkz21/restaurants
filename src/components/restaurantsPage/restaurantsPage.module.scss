@@ -1,24 +1,24 @@
-.restaurantsPage__wrapper {
+.restaurantsPageWrapper {
   min-width: 320px;
   width: 100%;
   margin: 0 auto;
 }
 
-.restaurantsPage__nav {
+.restaurantsPageNav {
   display: flex;
   flex-direction: column;
   background-color: var(--background-color-Accent);
   padding: 0 20px;
 }
 
-.restaurantsPage__list {
+.restaurantsPageList {
   display: flex;
   align-items: center;
   margin: 0 auto;
   column-gap: 15px;
 }
 
-.restaurantsPage__menu {
+.restaurantsPageMenu {
   display: flex;
   flex-direction: column;
   gap: 30px;

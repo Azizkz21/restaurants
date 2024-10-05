@@ -1,4 +1,8 @@
-.footer__wrapper {
+.footer {
+  margin-top: auto;
+}
+
+.footerWrapper {
   min-width: 320px;
   display: flex;
   flex-direction: column;
@@ -9,7 +13,7 @@
   background-color: var(--background-color-Accent);
 }
 
-.footer__wrapper h2{
+.footerWrapper h2{
     text-transform: uppercase;
 }
 

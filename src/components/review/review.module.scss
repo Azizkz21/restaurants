@@ -1,20 +1,20 @@
-.review__inner{
+.reviewInner{
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.review__inner h3 {
+.reviewInner h3 {
     font-size: 20px;
     line-height: 20px;
   }
   
-  .review__inner p {
+  .reviewInner p {
     font-size: 18px;
     line-height: 18px;
   }
   
-  .review__inner span {
+  .reviewInner span {
     font-size: 18px;
     line-height: 18px;
   }

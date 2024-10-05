@@ -1,5 +1,4 @@
 import { useProgress } from "./useProgress";
-import classNames from "classnames";
 import styles from "./progress.module.scss";
 
 export const ProgressBar = () => {
@@ -7,7 +6,7 @@ export const ProgressBar = () => {
 
   return (
     <div
-      className={classNames(styles.pogressBar)}
+      className={styles.pogressBar}
       style={{
         width: `${progress}%`,
       }}
