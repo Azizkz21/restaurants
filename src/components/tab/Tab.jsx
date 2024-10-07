@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { Button } from "../button/Button";
 import style from "./tab.module.scss";
 

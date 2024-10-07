@@ -3,7 +3,7 @@ import { loginUser } from "../materials/mockUser";
 import style from "./loginUser.module.scss";
 import { Button } from "../button/Button";
 import { useState } from "react";
-import { useLoginUser } from "../themeContext/useLoginUser";
+import { useLoginUser } from "../loginContext/useLoginUser";
 import { loginForm } from "./loginForm";
 
 export const LoginUser = () => {

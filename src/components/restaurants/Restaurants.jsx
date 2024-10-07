@@ -2,7 +2,7 @@ import { DishCounter } from "../dishCounter/DishCounter";
 import { Menu } from "../menu/Menu";
 import { ReviewForm } from "../reviewForm/ReviewForm";
 import { Reviews } from "../reviews/Reviews";
-import { useLoginUser } from "../themeContext/useLoginUser";
+import { useLoginUser } from "../loginContext/useLoginUser";
 import style from "./restaurants.module.scss";
 
 export const Restaurant = ({ name, menu, reviews }) => {
@@ -11,7 +11,7 @@ export const Restaurant = ({ name, menu, reviews }) => {
   }
 
   const { login } = useLoginUser();
- 
+
   return (
     <section>
       <div className={style.restaurantsWrapper}>
