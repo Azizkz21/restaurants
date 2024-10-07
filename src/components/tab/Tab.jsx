@@ -1,10 +1,13 @@
-import classNames from "classnames";
+import { Button } from "../button/Button";
 import style from "./tab.module.scss";
 
 export const Tab = ({ title, onClick, isActive }) => {
   return (
-    <button className={style.buttonTab} disabled={isActive} onClick={onClick}>
-      {title}
-    </button>
+    <Button
+      isActive={isActive}
+      onClick={onClick}
+      text={title}
+      className={style.buttonTab}
+    />
   );
 };
