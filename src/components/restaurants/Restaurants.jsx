@@ -2,6 +2,7 @@ import { DishCounter } from "../dishCounter/DishCounter";
 import { Menu } from "../menu/Menu";
 import { ReviewForm } from "../reviewForm/ReviewForm";
 import { Reviews } from "../reviews/Reviews";
+import { useLoginUser } from "../themeContext/useLoginUser";
 import style from "./restaurants.module.scss";
 
 export const Restaurant = ({ name, menu, reviews }) => {
@@ -9,6 +10,8 @@ export const Restaurant = ({ name, menu, reviews }) => {
     return null;
   }
 
+  const { login } = useLoginUser();
+ 
   return (
     <section>
       <div className={style.restaurantsWrapper}>
@@ -19,7 +22,7 @@ export const Restaurant = ({ name, menu, reviews }) => {
         <div className={style.restaurantsMenu}>
           <h2>{name}</h2>
           {menu.length ? <Menu menu={menu} /> : <div>Блюда не готовы</div>}
-          <DishCounter />
+          {login ? <DishCounter /> : ""}
         </div>
 
         <div className={style.restaurantsReviews}>
@@ -28,7 +31,7 @@ export const Restaurant = ({ name, menu, reviews }) => {
           ) : (
             <div>Пока нет отзывов. Вы можете стать первым</div>
           )}
-          <ReviewForm />
+          {login ? <ReviewForm /> : ""}
         </div>
       </div>
     </section>

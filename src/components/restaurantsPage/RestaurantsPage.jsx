@@ -31,7 +31,7 @@ export const RestaurantsPage = ({ title }) => {
                 key={id}
                 title={name}
                 onClick={() => activeChangeRestaurant(id)}
-                isActive={id === activeRestaurant}
+                isActive={id === activeRestaurantId}
               />
             </li>
           ))}

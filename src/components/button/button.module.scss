@@ -1,0 +1,44 @@
+.button {
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.default {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.xl {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.softOrange {
+  color: var(--counterBtn);
+  
+}
+
+.dark {
+  color: var(--color-main);
+  background-color: var(--background-color-Page);
+}
+
+.tabActive {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--counterBtn);
+  }
+}
