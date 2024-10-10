@@ -1,17 +1,14 @@
 
 import style from "./menu.module.scss";
+import { RestaurantActiveMenu } from "../restaurantActiveMenu/restaurantActiveMenu";
 
 export const Menu = ({ menu }) => {
   return (
     <div className={style.menuInner}>
       <ul className={style.menuList}>
-        {menu.map((menu) => (
-          <li className={style.menuItem} key={menu.id}>
-            <div className={style.menuBlock}> 
-              <h3>{menu.name}</h3>
-              <p>{menu.ingredients}</p>
-              <span>{menu.price}</span>
-            </div>
+        {menu.map((id) => (
+          <li className={style.menuItem} key={id}>
+            <RestaurantActiveMenu key={id} id={id} />
           </li>
         ))}
       </ul>

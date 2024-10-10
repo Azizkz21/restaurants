@@ -4,8 +4,14 @@ import { ReviewForm } from "../reviewForm/ReviewForm";
 import { Reviews } from "../reviews/Reviews";
 import { useLoginUser } from "../loginContext/useLoginUser";
 import style from "./restaurants.module.scss";
+import { useSelector } from "react-redux";
+import { selectRestaurantsByIds } from "../../redux/restaurants";
 
-export const Restaurant = ({ name, menu, reviews }) => {
+export const Restaurant = ({ id }) => {
+  const restaurant = useSelector((state) => selectRestaurantsByIds(state, id));
+
+  const { name, menu, reviews } = restaurant || {};
+
   if (!name) {
     return null;
   }
@@ -21,7 +27,7 @@ export const Restaurant = ({ name, menu, reviews }) => {
 
         <div className={style.restaurantsMenu}>
           <h2>{name}</h2>
-          {menu.length ? <Menu menu={menu} /> : <div>Блюда не готовы</div>}
+          {menu.length ? <Menu menu={menu}  /> : <div>Блюда не готовы</div>}
           {login ? <DishCounter /> : ""}
         </div>
 

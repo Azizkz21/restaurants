@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { restaurants } from "../materials/mock";
 import { Restaurant } from "../restaurants/Restaurants";
-import { Tab } from "../tab/Tab";
+import { useSelector } from "react-redux";
+import { selectRestaurantsIds } from "../../redux/restaurants";
+import { RestaurantsTab } from "../restaurants-Tab/Restaurants-Tab";
 import style from "./restaurantsPage.module.scss";
 
-
 export const RestaurantsPage = ({ title }) => {
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurants[0].id
-  );
+  const restaurantsIds = useSelector(selectRestaurantsIds);
 
-  const activeRestaurant = restaurants.find(
-    ({ id }) => id === activeRestaurantId
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantsIds[0]
   );
 
   const activeChangeRestaurant = (id) => {
@@ -21,33 +19,29 @@ export const RestaurantsPage = ({ title }) => {
   };
 
   return (
-    <div className={style.restaurantsPageWrapper}>
-      <h1 className={"visuallyHidden"}>{title}</h1>
-      <nav className={style.restaurantsPageNav}>
-        <ul className={style.restaurantsPageList}>
-          {restaurants.map(({ name, id }) => (
-            <li className={style.restaurantsPageItem} key={id}>
-              <Tab
-                key={id}
-                title={name}
-                onClick={() => activeChangeRestaurant(id)}
-                isActive={id === activeRestaurantId}
-              />
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className={style.restaurantsPageMenu}>
-        {activeRestaurant && (
-          <Restaurant
-            key={activeRestaurant.id}
-            name={activeRestaurant.name}
-            menu={activeRestaurant.menu}
-            reviews={activeRestaurant.reviews}
-          />
-        )}
-      </div>
-    </div>
+    <>
+      {restaurantsIds.length > 0 && (
+        <div className={style.restaurantsPageWrapper}>
+          <h1 className={"visuallyHidden"}>{title}</h1>
+          <nav className={style.restaurantsPageNav}>
+            <ul className={style.restaurantsPageList}>
+              {restaurantsIds.map((id) => (
+                <li key={id} className={style.restaurantsPageItem}>
+                  <RestaurantsTab
+                    key={id}
+                    id={id}
+                    onClick={() => activeChangeRestaurant(id)}
+                    isActive={id === activeRestaurantId}
+                  />
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className={style.restaurantsPageMenu}>
+            <Restaurant key={activeRestaurantId} id={activeRestaurantId} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
