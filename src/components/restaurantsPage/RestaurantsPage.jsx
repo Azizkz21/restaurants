@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../../redux/restaurants";
-import { RestaurantsTab } from "../restaurants-Tab/Restaurants-Tab";
+import { selectRestaurantsId } from "../../redux/restaurants";
+import { RestaurantTab } from "../restaurant-Tab/Restaurant-Tab";
 import style from "./restaurantsPage.module.scss";
 import { Outlet } from "react-router-dom";
 
 export const RestaurantsPage = ({ title }) => {
-  const restaurantsIds = useSelector(selectRestaurantsIds);
+  const restaurantsIds = useSelector(selectRestaurantsId);
 
   return (
     <>
@@ -16,7 +16,7 @@ export const RestaurantsPage = ({ title }) => {
             <ul className={style.restaurantsPageList}>
               {restaurantsIds.map((id) => (
                 <li key={id} className={style.restaurantsPageItem}>
-                  <RestaurantsTab key={id} id={id} />
+                  <RestaurantTab key={id} id={id} />
                 </li>
               ))}
             </ul>

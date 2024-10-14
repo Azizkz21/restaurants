@@ -1,13 +1,13 @@
 import style from "./menu.module.scss";
-import { RestaurantActiveMenu } from "../restaurantActiveMenu/restaurantActiveMenu";
+import { RestaurantMenu } from "../restaurantMenu/restaurantMenu";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectRestaurantsByIds } from "../../redux/restaurants";
+import { selectRestaurantsById } from "../../redux/restaurants";
 
 export const Menu = () => {
   const { restaurantId } = useParams();
   const restaurant = useSelector((state) =>
-    selectRestaurantsByIds(state, restaurantId)
+    selectRestaurantsById(state, restaurantId)
   );
 
   return (
@@ -15,7 +15,7 @@ export const Menu = () => {
       <ul className={style.menuList}>
         {restaurant.menu.map((id) => (
           <li className={style.menuItem} key={id}>
-            <RestaurantActiveMenu key={id}  id={id} />
+            <RestaurantMenu id={id} />
           </li>
         ))}
       </ul>

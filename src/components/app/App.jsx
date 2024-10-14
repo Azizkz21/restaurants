@@ -4,7 +4,7 @@ import { Layout } from "../layout/Layout";
 import { RestaurantsPage } from "../restaurantsPage/RestaurantsPage";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import { RestaurantPage } from "../restaurantPage/restaurantPage";
 import { HomePage } from "../HomePage/HomePage";
 import { Menu } from "../menu/Menu";
@@ -31,6 +31,10 @@ const router = createBrowserRouter([
             path: ":restaurantId",
             element: <RestaurantPage />,
             children: [
+              {
+                index: true,
+                element: <Navigate to="menu" />,
+              },
               {
                 path: "menu",
                 element: <Menu />,
