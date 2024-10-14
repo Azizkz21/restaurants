@@ -1,18 +1,4 @@
-// .Cart {
-//   position: absolute;
 
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-
-//   min-width: 100%;
-//   height: 100%;
-//   width: 100%;
-//   height: 100%;
-//   margin: auto auto;
-//   z-index: 10;
-// }
 
 .CartList {
   position: relative;
@@ -20,7 +6,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-//   align-items: center;
+
 }
 
 .cartItem {
@@ -31,11 +17,4 @@
   margin-bottom: 10px;
 }
 
-// .CartBg {
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-//   background-color: gray;
-//   opacity: 0.5;
-//   z-index: -10;
-// }
+

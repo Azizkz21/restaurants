@@ -1,43 +1,21 @@
-import { DishCounter } from "../dishCounter/DishCounter";
-import { Menu } from "../menu/Menu";
-import { ReviewForm } from "../reviewForm/ReviewForm";
-import { Reviews } from "../reviews/Reviews";
-import { useLoginUser } from "../loginContext/useLoginUser";
 import style from "./restaurants.module.scss";
-import { useSelector } from "react-redux";
-import { selectRestaurantsByIds } from "../../redux/restaurants";
+import { NavLink, Outlet } from "react-router-dom";
 
-export const Restaurant = ({ id }) => {
-  const restaurant = useSelector((state) => selectRestaurantsByIds(state, id));
-
-  const { name, menu, reviews } = restaurant || {};
-
+export const Restaurant = ({ name }) => {
   if (!name) {
     return null;
   }
 
-  const { login } = useLoginUser();
-
   return (
     <section>
       <div className={style.restaurantsWrapper}>
-        <div className={style.restaurantsTitle}>
-          <h2>Меню</h2>
+        <div className={style.restaurantsLink}>
+          <NavLink to={"menu"}>Menu</NavLink>
+          <NavLink to={"review"}>Reviews</NavLink>
         </div>
 
-        <div className={style.restaurantsMenu}>
-          <h2>{name}</h2>
-          {menu.length ? <Menu menu={menu}  /> : <div>Блюда не готовы</div>}
-          {login ? <DishCounter /> : ""}
-        </div>
-
-        <div className={style.restaurantsReviews}>
-          {reviews.length ? (
-            <Reviews reviews={reviews} />
-          ) : (
-            <div>Пока нет отзывов. Вы можете стать первым</div>
-          )}
-          {login ? <ReviewForm /> : ""}
+        <div className={style.restaurantsInner}>
+          <Outlet />
         </div>
       </div>
     </section>

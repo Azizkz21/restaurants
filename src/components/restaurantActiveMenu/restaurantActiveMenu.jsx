@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import style from "./restaurantActiveMenu.module.scss";
 import { selectDishByIds } from "../../redux/dish";
+import { Link } from "react-router-dom";
 
 export const RestaurantActiveMenu = ({ id }) => {
   const dishe = useSelector((state) => selectDishByIds(state, id));
@@ -9,9 +10,7 @@ export const RestaurantActiveMenu = ({ id }) => {
   }
   return (
     <div className={style.menuBlock}>
-      <h3>{dishe.name}</h3>
-      <p>{dishe.price}</p>
-      <span>{dishe.ingredients}</span>
+      <Link to={`/dish/${id}`}>{dishe.name}</Link>
     </div>
   );
 };
