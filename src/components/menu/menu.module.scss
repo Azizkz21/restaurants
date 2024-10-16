@@ -1,5 +1,3 @@
-
-
 .menuList {
   display: grid;
   grid-template-columns: 400px;
@@ -11,19 +9,26 @@
   grid-template-columns: 1fr;
 }
 
+.menuItem a {
+  position: relative;
+  color: var(--color-main);
+  text-transform: uppercase;
+  display: block;
+  padding: 10px;
+  border: 2px solid var(--counterBtn);
+  border-radius: 5px;
 
+  transform: scale(1);
+  transition: all 0.7s ease;
 
-.menuBlock h3 {
-  font-size: 20px;
-  line-height: 20px;
-}
+  &:hover {
+    transform: scale(0.9);
+  }
 
-.menuBlock p {
-  font-size: 18px;
-  line-height: 18px;
-}
-
-.menuBlock span {
-  font-size: 18px;
-  line-height: 18px;
+  &::after {
+    position: absolute;
+    content: "more";
+    left: auto;
+    right: 10px;
+  }
 }

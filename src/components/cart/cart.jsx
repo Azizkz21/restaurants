@@ -1,8 +1,9 @@
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { selectCartItems } from "../../redux/ui/cart";
 import { CartItem } from "../cartItem/cartItem";
 import { DishCounter } from "../dishCounter/DishCounter";
 import style from "./cart.module.scss";
+
 export const Cart = () => {
   const items = useSelector(selectCartItems);
   if (!items.length) {

@@ -1,29 +1,53 @@
 .restaurantsWrapper {
+  margin: 0 auto;
   min-width: 320px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 20px;
 }
 
+.restaurantsLink {
+  display: flex;
+  gap: 10px;
+}
 
+.restaurantsLink a {
+  font-size: 18px;
+  line-height: 18px;
+  color: var(--color-main);
+  text-transform: uppercase;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.7s ease;
+
+  &:hover {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
 
 .restaurantsTitle h2 {
   font-size: 36px;
   line-height: 36px;
 }
 
-.restaurantsMenu{
+.restaurantsInner {
+  display: flex;
+}
+
+.restaurantsMenu {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .restaurantsMenu h2 {
-    font-size: 36px;
-    line-height: 36px;
+  font-size: 36px;
+  line-height: 36px;
 }
 
-.restaurantsReviews{
+.restaurantsReviews {
   display: flex;
   flex-direction: column;
   gap: 10px;

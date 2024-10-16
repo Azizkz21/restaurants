@@ -8,6 +8,7 @@ import {
 
 export const DishCounter = ({ id }) => {
   const amount = useSelector((state) => selectAmountById(state, id));
+
   const dispatch = useDispatch();
 
   const increment = () => dispatch(addToCart(id));

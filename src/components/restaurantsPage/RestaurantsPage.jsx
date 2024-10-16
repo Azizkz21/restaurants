@@ -1,44 +1,28 @@
-import { useState } from "react";
-import { Restaurant } from "../restaurants/Restaurants";
 import { useSelector } from "react-redux";
-import { selectRestaurantsIds } from "../../redux/restaurants";
-import { RestaurantsTab } from "../restaurants-Tab/Restaurants-Tab";
+import { selectRestaurantsId } from "../../redux/restaurants";
+import { RestaurantTab } from "../restaurant-Tab/Restaurant-Tab";
 import style from "./restaurantsPage.module.scss";
+import { Outlet } from "react-router-dom";
 
 export const RestaurantsPage = ({ title }) => {
-  const restaurantsIds = useSelector(selectRestaurantsIds);
-
-  const [activeRestaurantId, setActiveRestaurantId] = useState(
-    restaurantsIds[0]
-  );
-
-  const activeChangeRestaurant = (id) => {
-    if (activeRestaurantId !== id) {
-      setActiveRestaurantId(id);
-    }
-  };
+  const restaurantsIds = useSelector(selectRestaurantsId);
 
   return (
     <>
       {restaurantsIds.length > 0 && (
         <div className={style.restaurantsPageWrapper}>
-          <h1 className={"visuallyHidden"}>{title}</h1>
-          <nav className={style.restaurantsPageNav}>
+          <h1>{title}</h1>
+          <div className={style.restaurantsPage}>
             <ul className={style.restaurantsPageList}>
               {restaurantsIds.map((id) => (
                 <li key={id} className={style.restaurantsPageItem}>
-                  <RestaurantsTab
-                    key={id}
-                    id={id}
-                    onClick={() => activeChangeRestaurant(id)}
-                    isActive={id === activeRestaurantId}
-                  />
+                  <RestaurantTab key={id} id={id} />
                 </li>
               ))}
             </ul>
-          </nav>
+          </div>
           <div className={style.restaurantsPageMenu}>
-            <Restaurant key={activeRestaurantId} id={activeRestaurantId} />
+            <Outlet />
           </div>
         </div>
       )}

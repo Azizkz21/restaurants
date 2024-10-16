@@ -1,10 +1,8 @@
 import { useSelector } from "react-redux";
-import { selectRestaurantsByIds } from "../../redux/restaurants";
+import { selectDishById } from "../../redux/dish";
 
 export const CartItem = ({ id, amount }) => {
-  const { name } = useSelector(
-    (state) => selectRestaurantsByIds(state, id) || {}
-  );
+  const { name } = useSelector((state) => selectDishById(state, id)) || {};
 
   if (!name) {
     return null;
@@ -12,7 +10,9 @@ export const CartItem = ({ id, amount }) => {
 
   return (
     <div>
-      {name} - {amount}
+      <div>
+        {name} - {amount}
+      </div>
     </div>
   );
 };

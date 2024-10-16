@@ -1,13 +1,11 @@
 import style from "./review.module.scss";
 import { useSelector } from "react-redux";
-import { selectReviewsByIds } from "../../redux/reviews";
-import { selectUsersByIds } from "../../redux/users";
+import { selectReviewsById } from "../../redux/reviews";
+import { selectUsersById } from "../../redux/users";
 
 export const Review = ({ id }) => {
-  const reviewIds = useSelector((state) => selectReviewsByIds(state, id));
-  const user = useSelector((state) =>
-    selectUsersByIds(state, reviewIds.userId)
-  );
+  const reviewIds = useSelector((state) => selectReviewsById(state, id));
+  const user = useSelector((state) => selectUsersById(state, reviewIds.userId));
 
   if (!reviewIds) {
     return null;
