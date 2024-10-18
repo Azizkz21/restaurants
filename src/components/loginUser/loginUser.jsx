@@ -1,13 +1,13 @@
 import classnames from "classnames";
 import { loginUser } from "../materials/mockUser";
 import style from "./loginUser.module.scss";
-import { Button } from "../button/Button";
+import { Button } from "../UI-Button/button/Button";
 import { useState } from "react";
-import { useLoginUser } from "../loginContext/useLoginUser";
-import { loginForm } from "./loginForm";
+import { useLoginUser } from "../Context/loginContext/useLoginUser";
+import { useLoginForm } from "./useLoginForm";
 
 export const LoginUser = () => {
-  const { user, pin, setUser, setPin, setClear } = loginForm();
+  const { user, pin, setUser, setPin, setClear } = useLoginForm();
   const { login, valid } = useLoginUser();
   const [userName, setUserName] = useState("");
   const accounts = loginUser.map((acc) => acc.account);
