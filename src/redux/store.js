@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { restaurantsSlice } from "./restaurants";
-import { dishSlice } from "./dish";
+import { dishSlice } from "./dishes";
 import { reviewsSlice } from "./reviews";
 import { usersSlice } from "./users";
 import { cartSlice } from "./ui/cart";
