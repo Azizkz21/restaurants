@@ -3,9 +3,9 @@ import { selectDishById } from ".";
 
 export const getDishes = createAsyncThunk(
   "dishes/getDishes",
-  async (dishId, { rejectWithValue }) => {
+  async (restaurantId, { rejectWithValue }) => {
     const response = await fetch(
-      `http://localhost:3001/api/dishes?restaurantId=${dishId}`
+      `http://localhost:3001/api/dishes?restaurantId=${restaurantId}`
     );
     const result = await response.json();
     if (!result.name) {

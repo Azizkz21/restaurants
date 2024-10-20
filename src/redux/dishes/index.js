@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { FULFILLED, IDLE, PENDING, REJECTED } from "../../constats/constats";
 import { getDishes } from "./get-dishes";
-import { getDishesId } from "./get-dishesId";
+import { getDish } from "./get-dish";
 
 const entityAdapter = createEntityAdapter();
 
@@ -14,30 +14,30 @@ export const dishSlice = createSlice({
   selectors: {
     selectDishId: (state) => state.ids,
     selectDishById: (state, id) => state.entities[id],
-    selectDishRequestStatus: (state) => state.requestStatus,
-    selectDishRequestStatusId: (state) => state.requestStatusId,
+    selectDishRequestStatus: (state) => state.requestStatusDish,
+    selectDishRequestStatusId: (state) => state.requestStatusDishId,
   },
   extraReducers: (builder) =>
     builder
       .addCase(getDishes.pending, (state) => {
-        state.requestStatus = PENDING;
+        state.requestStatusDish = PENDING;
       })
       .addCase(getDishes.fulfilled, (state, { payload }) => {
         entityAdapter.setMany(state, payload);
-        state.requestStatus = FULFILLED;
+        state.requestStatusDish = FULFILLED;
       })
       .addCase(getDishes.rejected, (state) => {
-        state.requestStatus = REJECTED;
+        state.requestStatusDish = REJECTED;
       })
-      .addCase(getDishesId.pending, (state) => {
-        state.requestStatusId = PENDING;
+      .addCase(getDish.pending, (state) => {
+        state.requestStatusDishId = PENDING;
       })
-      .addCase(getDishesId.fulfilled, (state, { payload }) => {
+      .addCase(getDish.fulfilled, (state, { payload }) => {
         entityAdapter.setOne(state, payload);
-        state.requestStatusId = FULFILLED;
+        state.requestStatusDishId = FULFILLED;
       })
-      .addCase(getDishesId.rejected, (state) => {
-        state.requestStatusId = REJECTED;
+      .addCase(getDish.rejected, (state) => {
+        state.requestStatusDishId = REJECTED;
       }),
 });
 

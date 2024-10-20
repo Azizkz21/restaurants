@@ -6,8 +6,6 @@ import {
   selectAmountById,
 } from "../../../redux/ui/cart";
 
-// "../../redux/ui/cart"
-
 export const DishCounter = ({ id }) => {
   const amount = useSelector((state) => selectAmountById(state, id));
 

@@ -6,13 +6,13 @@ import {
 } from "../../../redux/dishes";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { getDishesId } from "../../../redux/dishes/get-dishesId";
+import { getDish } from "../../../redux/dishes/get-dish";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
 
 export const RestaurantMenu = ({ id }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getDishesId(id));
+    dispatch(getDish(id));
   }, [dispatch, id]);
   const dishe = useSelector((state) => selectDishById(state, id));
   const requestStatus = useSelector(selectDishRequestStatusId);

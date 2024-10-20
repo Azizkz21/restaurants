@@ -3,13 +3,13 @@ import style from "./reviews.module.scss";
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { ReviewForm } from "../reviewForm/ReviewForm";
 
-export const Reviews = ({ reviewId }) => {
+export const Reviews = ({ review }) => {
   const { login } = useLoginUser();
 
   return (
     <div className={style.reviewsInner}>
       <ul className={style.reviewsList}>
-        {reviewId.reviews.map((id) => (
+        {review.reviews.map((id) => (
           <li className={style.reviewsItem} key={id}>
             <Review key={id} id={id} />
           </li>

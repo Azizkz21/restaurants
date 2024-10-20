@@ -8,7 +8,7 @@ import {
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { DishCounter } from "../../Count/dishCounter/DishCounter";
 import { useEffect } from "react";
-import { getDishesId } from "../../../redux/dishes/get-dishesId";
+import { getDish } from "../../../redux/dishes/get-dish";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
 
 export const DishPage = () => {
@@ -20,7 +20,7 @@ export const DishPage = () => {
   const { login } = useLoginUser();
 
   useEffect(() => {
-    dispatch(getDishesId(dishId));
+    dispatch(getDish(dishId));
   }, [dispatch, dishId]);
 
   if (requestStatus === IDLE || requestStatus === PENDING) {

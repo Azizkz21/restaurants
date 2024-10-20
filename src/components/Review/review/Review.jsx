@@ -1,23 +1,14 @@
-import { useEffect } from "react";
 import {
   selectReviewsById,
   selectReviewsRequestStatus,
 } from "../../../redux/reviews";
 import style from "./review.module.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
-import { getReviews } from "../../../redux/reviews/get-reviews";
 import { UsersReview } from "./usersReview";
 
 export const Review = ({ id }) => {
-  const dispatch = useDispatch();
   const reviewIds = useSelector((state) => selectReviewsById(state, id));
-
-  useEffect(() => {
-    dispatch(getReviews(id));
-  }, [dispatch, id]);
-
-
   const requestStatus = useSelector(selectReviewsRequestStatus);
 
   if (requestStatus === IDLE || requestStatus === PENDING) {
@@ -36,7 +27,11 @@ export const Review = ({ id }) => {
     <div className={style.reviewInner} key={reviewIds}>
       <UsersReview userId={reviewIds.userId} />
       <p>{reviewIds.text}</p>
-      <span>{reviewIds.rating}</span>
+      <span>
+        {Array.from(Array(reviewIds.rating), (_, i) => (
+          <span key={i}>🌟</span>
+        ))}
+      </span>
     </div>
   );
 };

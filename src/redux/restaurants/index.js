@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { FULFILLED, IDLE, PENDING, REJECTED } from "../../constats/constats";
 import { getRestaurants } from "./get-restaurants";
-import { getRestaurantId } from "./get-restaurantId";
+import { getRestaurant } from "./get-restaurantId";
 
 const entityAdapter = createEntityAdapter();
 
@@ -29,14 +29,14 @@ export const restaurantsSlice = createSlice({
       .addCase(getRestaurants.rejected, (state) => {
         state.requestStatus = REJECTED;
       })
-      .addCase(getRestaurantId.pending, (state) => {
+      .addCase(getRestaurant.pending, (state) => {
         state.requestStatusId = PENDING;
       })
-      .addCase(getRestaurantId.fulfilled, (state, { payload }) => {
+      .addCase(getRestaurant.fulfilled, (state, { payload }) => {
         entityAdapter.setOne(state, payload);
         state.requestStatusId = FULFILLED;
       })
-      .addCase(getRestaurantId.rejected, (state) => {
+      .addCase(getRestaurant.rejected, (state) => {
         state.requestStatusId = REJECTED;
       }),
 });
