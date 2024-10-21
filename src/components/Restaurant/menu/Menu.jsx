@@ -1,9 +1,8 @@
 import style from "./menu.module.scss";
-import { RestaurantMenu } from "../restaurantMenu/restaurantMenu";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectRestaurantsById } from "../../../redux/restaurants";
-
+import { DishItem } from "../DishItem/DishItem";
 
 export const Menu = () => {
   const { restaurantId } = useParams();
@@ -16,7 +15,7 @@ export const Menu = () => {
       <ul className={style.menuList}>
         {restaurant.menu.map((id) => (
           <li className={style.menuItem} key={id}>
-            <RestaurantMenu id={id} />
+            <DishItem id={id} />
           </li>
         ))}
       </ul>

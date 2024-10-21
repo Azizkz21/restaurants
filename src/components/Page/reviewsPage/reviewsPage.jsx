@@ -23,5 +23,7 @@ export const ReviewsPage = () => {
     selectRestaurantsById(state, restaurantId)
   );
 
-  return <Reviews review={restaurantReviews} />;
+ 
+
+  return <Reviews restaurant={restaurantReviews} />;
 };
