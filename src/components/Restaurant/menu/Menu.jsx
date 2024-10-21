@@ -1,8 +1,8 @@
 import style from "./menu.module.scss";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectRestaurantsById } from "../../../redux/restaurants";
 import { DishItem } from "../DishItem/DishItem";
+import { selectRestaurantsById } from "../../../redux/entities/restaurants";
 
 export const Menu = () => {
   const { restaurantId } = useParams();

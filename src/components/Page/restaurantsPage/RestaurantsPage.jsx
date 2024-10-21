@@ -2,13 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import style from "./restaurantsPage.module.scss";
 import { Outlet, useNavigate } from "react-router-dom";
 import { RestaurantTab } from "../../Tabs/restaurant-Tab/Restaurant-Tab";
-import {
-  selectRestaurantsId,
-  selectRestaurantsRequestStatus,
-} from "../../../redux/restaurants";
 import { useEffect } from "react";
-import { getRestaurants } from "../../../redux/restaurants/get-restaurants";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
+import { getRestaurants } from "../../../redux/entities/restaurants/get-restaurants";
+import { selectRestaurantsId, selectRestaurantsRequestStatus } from "../../../redux/entities/restaurants";
 
 export const RestaurantsPage = ({ title }) => {
   const dispatch = useDispatch();

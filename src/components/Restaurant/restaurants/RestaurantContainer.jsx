@@ -3,10 +3,10 @@ import { Restaurant } from "./Restaurants";
 import {
   selectRestaurantsById,
   selectRestaurantsRequestStatusId,
-} from "../../../redux/restaurants";
+} from "../../../redux/entities/restaurants";
 import { useEffect } from "react";
-import { getRestaurant } from "../../../redux/restaurants/get-restaurantId";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
+import { getRestaurant } from "../../../redux/entities/restaurants/get-restaurantId";
 
 export const RestaurantContainer = ({ id }) => {
   const dispatch = useDispatch();

@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
 import style from "./dishPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectDishById,
-  selectDishRequestStatusId,
-} from "../../../redux/dishes";
+
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { DishCounter } from "../../Count/dishCounter/DishCounter";
 import { useEffect } from "react";
-import { getDish } from "../../../redux/dishes/get-dish";
 import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
+import { getDish } from "../../../redux/entities/dishes/get-dish";
+import { selectDishById, selectDishRequestStatusId } from "../../../redux/entities/dishes";
 
 export const DishPage = () => {
   const dispatch = useDispatch();
