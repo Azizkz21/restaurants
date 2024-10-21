@@ -23,8 +23,8 @@ export const getReviews = createAsyncThunk(
       const restaurant = selectRestaurantsById(getState(), restaurantId);
       const { menu } = restaurant;
 
-      for (let elId of menu) {
-        if (!selectReviewsById(getState(), elId)) {
+      for (let menuId of menu) {
+        if (!selectReviewsById(getState(), menuId)) {
           return true;
         }
         return false;
