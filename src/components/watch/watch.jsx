@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useWatch } from "./useWatch";
 import style from "./watch.module.scss";
 import classnames from "classnames";
-import { useTheme } from "../themeContext/useTheme";
+import { useTheme } from "../Context/themeContext/useTheme";
+
 
 export const Watch = () => {
   const date = new Date().toLocaleTimeString();

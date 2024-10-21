@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { restaurantsSlice } from "./restaurants";
-import { dishSlice } from "./dish";
-import { reviewsSlice } from "./reviews";
-import { usersSlice } from "./users";
 import { cartSlice } from "./ui/cart";
+import { requestSlice } from "./ui/request";
+import { restaurantsSlice } from "./entities/restaurants";
+import { reviewsSlice } from "./entities/reviews";
+import { usersSlice } from "./entities/users";
+import { dishSlice } from "./entities/dishes";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,8 @@ export const store = configureStore({
     [reviewsSlice.name]: reviewsSlice.reducer,
     [usersSlice.name]: usersSlice.reducer,
     [cartSlice.name]: cartSlice.reducer,
+    [requestSlice.name]: requestSlice.reducer,
   },
+  // middleware: (getDefaultMiddlewares) =>
+  //   getDefaultMiddlewares().concat(apiSlice.middleware),
 });
