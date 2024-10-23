@@ -1,5 +1,5 @@
 import { LoginUser } from "../loginUser/loginUser";
-import { ToggleThemeButton } from "../toggleThemeButton/toggleThemeButton";
+import { ToggleThemeButton } from "../UI-Button/toggleThemeButton/toggleThemeButton";
 import { Watch } from "../watch/watch";
 import styles from "./header.module.scss";
 

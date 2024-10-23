@@ -1,15 +1,18 @@
-import { ThemeContextProvider } from "../themeContext/themeContext";
-import { LoginContextProvider } from "../loginContext/loginContext";
+import { ThemeContextProvider } from "../Context/themeContext/themeContext";
+import { LoginContextProvider } from "../Context/loginContext/loginContext";
 import { Layout } from "../layout/Layout";
-import { RestaurantsPage } from "../restaurantsPage/RestaurantsPage";
+import { RestaurantsPage } from "../Page/restaurantsPage/RestaurantsPage";
 import { Provider } from "react-redux";
 import { store } from "../../redux/store";
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
-import { RestaurantPage } from "../restaurantPage/restaurantPage";
-import { HomePage } from "../HomePage/HomePage";
-import { Menu } from "../menu/Menu";
-import { Reviews } from "../reviews/Reviews";
-import { DishPage } from "../dishPage/dishPage";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
+import { RestaurantPage } from "../Page/restaurantPage/restaurantPage";
+import { HomePage } from "../Page/HomePage/HomePage";
+import { Menu } from "../Restaurant/menu/Menu";
+import { DishPage } from "../Page/dishPage/dishPage";
 
 // css style global
 import "./global/global.scss";
@@ -17,6 +20,7 @@ import "./global/vars.scss";
 import "./global/base.scss";
 import "./global/utils.scss";
 import "./global/sticky-footer.scss";
+import { ReviewsPage } from "../Page/reviewsPage/reviewsPage";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +45,7 @@ const router = createBrowserRouter([
               },
               {
                 path: "review",
-                element: <Reviews />,
+                element: <ReviewsPage />,
               },
             ],
           },
