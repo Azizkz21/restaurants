@@ -2,28 +2,52 @@ import { ReviewItem } from "../reviewItem/reviewItem";
 import style from "./reviews.module.scss";
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { ReviewForm } from "../reviewForm/ReviewForm";
+import {
+  useGetReviewsByIdQuery,
+  useGetUsersQuery,
+} from "../../../redux/services/api/api";
 
-export const Reviews = ({ restaurant }) => {
+
+export const Reviews = ({ id }) => {
   const { login } = useLoginUser();
-  const { reviews } = restaurant;
+  const { userName } = login;
+
+  const { data, isFetching, isError } = useGetReviewsByIdQuery(id);
+  const {
+    data: users,
+    isLoading: loading,
+    isError: error,
+  } = useGetUsersQuery();
+
+  if (isFetching || loading) {
+    return `Loading...`;
+  }
+
+  if (isError || error) {
+    return <div>Error</div>;
+  }
+
+  if (!data?.length || !users?.length) {
+    return null;
+  }
 
   return (
     <div className={style.reviewsInner}>
       <ul className={style.reviewsList}>
-        {reviews.map((id) => (
+        {data.map(({ id, rating, text, userId }) => (
           <li className={style.reviewsItem} key={id}>
-            <ReviewItem key={id} id={id} />
+            <ReviewItem
+              key={id}
+              id={id}
+              rating={rating}
+              text={text}
+              userId={userId}
+              users={users}
+            />
           </li>
         ))}
       </ul>
-      {login ? (
-        <ReviewForm />
-      ) : (
-        <p className={style.reviewsComment}>
-          Чтобы оставить комментарий нужно зарегестрироваться либо войти в
-          аккаунт
-        </p>
-      )}
+      {userName && <ReviewForm restaurantId={id} />}
     </div>
   );
 };

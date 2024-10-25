@@ -1,21 +1,31 @@
 import style from "./menu.module.scss";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { DishItem } from "../DishItem/DishItem";
-import { selectRestaurantsById } from "../../../redux/entities/restaurants";
+import { useGetDishesQuery } from "../../../redux/services/api/api";
 
 export const Menu = () => {
   const { restaurantId } = useParams();
-  const restaurant = useSelector((state) =>
-    selectRestaurantsById(state, restaurantId)
-  );
+
+  const { data, isLoading, isError } = useGetDishesQuery(restaurantId);
+
+  if (isLoading) {
+    return "Loading...";
+  }
+
+  if (isError) {
+    return <div>Error</div>;
+  }
+
+  if (!data?.length) {
+    return null;
+  }
 
   return (
     <div className={style.menuInner}>
       <ul className={style.menuList}>
-        {restaurant.menu.map((id) => (
+        {data.map(({ id, name }) => (
           <li className={style.menuItem} key={id}>
-            <DishItem id={id} />
+            <DishItem id={id} name={name} />
           </li>
         ))}
       </ul>

@@ -1,16 +1,8 @@
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import style from "./restaurantTab.module.scss";
 import classnames from "classnames";
-import { selectRestaurantsById } from "../../../redux/entities/restaurants";
 
-
-export const RestaurantTab = ({ id }) => {
-  const restaurant = useSelector((state) => selectRestaurantsById(state, id));
-  if (!restaurant) {
-    return null;
-  }
-
+export const RestaurantTab = ({ id, name }) => {
   return (
     <NavLink
       to={id}
@@ -19,7 +11,7 @@ export const RestaurantTab = ({ id }) => {
         ({ isActive }) => isActive && "active"
       )}
     >
-      {restaurant.name}
+      {name}
     </NavLink>
   );
 };
