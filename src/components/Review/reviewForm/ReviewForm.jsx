@@ -1,5 +1,5 @@
 import { useForm } from "./useForm";
-import style from "./reviewForm.module.scss";
+import style from "./reviewForm.module.css";
 import { Counter } from "../../Count/counter/Counter";
 import {
   useAddReviewMutation,

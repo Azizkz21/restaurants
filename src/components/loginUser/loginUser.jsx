@@ -1,4 +1,4 @@
-import style from "./loginUser.module.scss";
+import style from "./loginUser.module.css";
 import { Button } from "../UI-Button/button/Button";
 import { useLoginUser } from "../Context/loginContext/useLoginUser";
 

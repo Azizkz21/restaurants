@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import style from "./restaurantTab.module.scss";
+import style from "./restaurantTab.module.css";
 import classnames from "classnames";
 
 export const RestaurantTab = ({ id, name }) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { ReviewForm } from "../reviewForm/ReviewForm";
-import style from "./review.module.scss";
+import style from "./review.module.css";
 
 export const ReviewItem = ({ id, rating, text, userId, users }) => {
   const { login: auth } = useLoginUser();

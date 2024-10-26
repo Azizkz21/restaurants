@@ -1,4 +1,4 @@
-import style from "./menu.module.scss";
+import style from "./menu.module.css";
 import { useParams } from "react-router-dom";
 import { DishItem } from "../DishItem/DishItem";
 import { useGetDishesQuery } from "../../../redux/services/api/api";

@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import styles from "./button.module.scss";
+import styles from "./button.module.css";
 import { useTheme } from "../../Context/themeContext/useTheme";
 
 export const Button = ({

@@ -1,7 +1,7 @@
 import { LoginUser } from "../loginUser/loginUser";
 import { ToggleThemeButton } from "../UI-Button/toggleThemeButton/toggleThemeButton";
 import { Watch } from "../watch/watch";
-import styles from "./header.module.scss";
+import styles from "./header.module.css";
 
 export const Header = () => {
   return (

@@ -1,5 +1,5 @@
 import { Button } from "../../UI-Button/button";
-import style from "./tab.module.scss";
+import style from "./tab.module.css";
 
 export const Tab = ({ title, onClick, isActive }) => {
   return (

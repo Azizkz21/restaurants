@@ -1,4 +1,4 @@
-import style from "./counter.module.scss";
+import style from "./counter.module.css";
 
 export const Counter = ({ value, increment, decrement }) => {
   return (
