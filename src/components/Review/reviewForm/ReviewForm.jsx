@@ -1,31 +1,79 @@
 import { useForm } from "./useForm";
 import style from "./reviewForm.module.scss";
 import { Counter } from "../../Count/counter/Counter";
+import {
+  useAddReviewMutation,
+  useEditReviewMutation,
+} from "../../../redux/services/api/api";
+import { useContext } from "react";
+import { UserContext } from "../../Context/loginContext";
 
+export const ReviewForm = ({
+  restaurantId = "",
+  isEdit = false,
+  reviewId,
+  reviewItem,
+}) => {
+  const {
+    name,
+    text,
+    rating,
+    setName,
+    setText,
+    setIncrementRating,
+    setDecrementRating,
+    setClear,
+  } = useForm({
+    userName: reviewItem?.userName,
+    reviewText: reviewItem?.text,
+    reviewRating: reviewItem?.rating,
+  });
 
-export const ReviewForm = () => {
-  const { name, comment, rating, setName, setComment, setRating, setClear } =
-    useForm();
+  const { login } = useContext(UserContext);
+
+  const { userId } = login;
+
+  const [addReview] = useAddReviewMutation();
+  const [editReview] = useEditReviewMutation();
 
   const increment = () => {
     if (rating < 5) {
-      setRating(rating + 1);
+      setIncrementRating();
     }
-
-    return;
   };
 
   const decrement = () => {
     if (rating > 1) {
-      setRating(rating - 1);
+      setDecrementRating();
     }
+  };
 
-    return;
+  const onSubmit = () => {
+    if (isEdit) {
+      editReview({
+        reviewId,
+        review: {
+          userId,
+          text,
+          rating,
+        },
+      });
+    } else {
+      addReview({
+        restaurantId,
+        review: {
+          userId,
+          text,
+          rating,
+        },
+      });
+    }
   };
 
   return (
     <form method="get" onSubmit={(e) => e.preventDefault()}>
       <div className={style.formInner}>
+        <p>{isEdit ? "Edit" : "Write a review"}</p>
         <ul className={style.formList}>
           <li className={style.formItem}>
             <label htmlFor="reviewsUserName">Имя:</label>
@@ -44,12 +92,12 @@ export const ReviewForm = () => {
         </ul>
         <div className={style.formCommentBlock}>
           <textarea
-            id="reviewsUserComment"
-            name="reviewsUserComment"
-            value={comment}
+            id="reviewsUserText"
+            name="reviewsUserText"
+            value={text}
             placeholder="Введите ваш комментарий"
             onChange={(event) => {
-              setComment(event.target.value);
+              setText(event.target.value);
             }}
           ></textarea>
         </div>
@@ -59,6 +107,9 @@ export const ReviewForm = () => {
         <div>
           <button className={style.formClear} onClick={setClear}>
             Clear
+          </button>
+          <button className={style.formClear} onClick={onSubmit}>
+            Submit
           </button>
         </div>
       </div>

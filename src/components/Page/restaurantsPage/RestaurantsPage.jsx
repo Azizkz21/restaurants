@@ -1,51 +1,40 @@
-import { useDispatch, useSelector } from "react-redux";
 import style from "./restaurantsPage.module.scss";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { RestaurantTab } from "../../Tabs/restaurant-Tab/Restaurant-Tab";
-import { useEffect } from "react";
-import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
-import { getRestaurants } from "../../../redux/entities/restaurants/get-restaurants";
-import { selectRestaurantsId, selectRestaurantsRequestStatus } from "../../../redux/entities/restaurants";
+import { useGetRestaurantsQuery } from "../../../redux/services/api/api";
 
 export const RestaurantsPage = ({ title }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  useEffect(() => {
-    dispatch(
-      getRestaurants({ onError: () => navigate({ to: ":restaurantId" }) }),
-      [dispatch, navigate]
-    );
-  });
-  const restaurantsIds = useSelector(selectRestaurantsId);
-  const requestStatus = useSelector(selectRestaurantsRequestStatus);
+  const { data, isLoading, isError } = useGetRestaurantsQuery();
 
-  if (requestStatus === IDLE || requestStatus === PENDING) {
+  if (isLoading) {
     return "loading";
   }
 
-  if (requestStatus === REJECTED) {
+  if (isError) {
     return <div>Error</div>;
+  }
+
+  if (!data.length) {
+    return null;
   }
 
   return (
     <>
-      {restaurantsIds.length > 0 && (
-        <div className={style.restaurantsPageWrapper}>
-          <h1>{title}</h1>
-          <div className={style.restaurantsPage}>
-            <ul className={style.restaurantsPageList}>
-              {restaurantsIds.map((id) => (
-                <li key={id} className={style.restaurantsPageItem}>
-                  <RestaurantTab key={id} id={id} />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={style.restaurantsPageMenu}>
-            <Outlet />
-          </div>
+      <div className={style.restaurantsPageWrapper}>
+        <h1>{title}</h1>
+        <div className={style.restaurantsPage}>
+          <ul className={style.restaurantsPageList}>
+            {data.map(({ id, name }) => (
+              <li key={id} className={style.restaurantsPageItem}>
+                <RestaurantTab key={id} id={id} name={name} />
+              </li>
+            ))}
+          </ul>
         </div>
-      )}
+        <div className={style.restaurantsPageMenu}>
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 };

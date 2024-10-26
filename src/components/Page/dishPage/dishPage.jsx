@@ -1,37 +1,29 @@
 import { useParams } from "react-router-dom";
 import style from "./dishPage.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { DishCounter } from "../../Count/dishCounter/DishCounter";
-import { useEffect } from "react";
-import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
-import { getDish } from "../../../redux/entities/dishes/get-dish";
-import { selectDishById, selectDishRequestStatusId } from "../../../redux/entities/dishes";
+import { useGetDishByIdQuery } from "../../../redux/services/api/api";
 
 export const DishPage = () => {
-  const dispatch = useDispatch();
   const { dishId } = useParams();
-  const dish = useSelector((state) => selectDishById(state, dishId));
-  const requestStatus = useSelector(selectDishRequestStatusId);
-  const { name, price, ingredients } = dish;
   const { login } = useLoginUser();
+  const { userName } = login;
 
-  useEffect(() => {
-    dispatch(getDish(dishId));
-  }, [dispatch, dishId]);
+  const { data, isLoading, isError } = useGetDishByIdQuery(dishId);
 
-  if (requestStatus === IDLE || requestStatus === PENDING) {
+  if (isLoading) {
     return "Loading...";
   }
 
-  if (requestStatus === REJECTED) {
+  if (isError) {
     return <div>Error</div>;
   }
 
-  if (!name) {
+  if (!data.name) {
     return null;
   }
+
+  const { name, price, ingredients } = data || {};
 
   return (
     <section>
@@ -42,7 +34,7 @@ export const DishPage = () => {
           <span className={style.dishIngredients}>
             {ingredients.join(", ")}
           </span>
-          {login ? <DishCounter /> : null}
+          {userName && <DishCounter id={dishId} />}
         </div>
       </div>
     </section>

@@ -1,11 +1,7 @@
 import style from "./restaurants.module.scss";
 import { NavLink, Outlet } from "react-router-dom";
 
-export const Restaurant = ({ name }) => {
-  if (!name) {
-    return null;
-  }
-
+export const Restaurant = () => {
   return (
     <section>
       <div className={style.restaurantsWrapper}>

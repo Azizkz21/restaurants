@@ -1,35 +1,53 @@
-
+import { useState } from "react";
+import { useLoginUser } from "../../Context/loginContext/useLoginUser";
+import { ReviewForm } from "../reviewForm/ReviewForm";
 import style from "./review.module.scss";
-import { useSelector } from "react-redux";
-import { IDLE, PENDING, REJECTED } from "../../../constats/constats";
-import { UsersReview } from "./usersReview";
-import { selectReviewsById, selectReviewsRequestStatus } from "../../../redux/entities/reviews";
 
-export const ReviewItem = ({ id }) => {
-  const reviewIds = useSelector((state) => selectReviewsById(state, id));
-  const requestStatus = useSelector(selectReviewsRequestStatus);
-
-  if (requestStatus === IDLE || requestStatus === PENDING) {
-    return "Loading...";
-  }
-
-  if (requestStatus === REJECTED) {
-    return <div>Error</div>;
-  }
-
-  if (!reviewIds) {
-    return null;
-  }
+export const ReviewItem = ({ id, rating, text, userId, users }) => {
+  const { login: auth } = useLoginUser();
+  const { userName } = auth;
+  const [isEdit, setIsEdit] = useState(false);
+  const user = users.find((user) => user.id === userId);
+  const reviewItem = {
+    id,
+    userId,
+    text,
+    rating,
+    userName: user ? user.name : userName,
+  };
 
   return (
-    <div className={style.reviewInner} key={reviewIds}>
-      <UsersReview userId={reviewIds.userId} />
-      <p>{reviewIds.text}</p>
-      <span>
-        {Array.from(Array(reviewIds.rating), (_, i) => (
+    <div className={style.reviewInner} key={id}>
+      <h3>{user ? user.name : userName}</h3>
+      <p>{text}</p>
+      <span className={style.reviewInnerSpan}>
+        {Array.from(Array(rating), (_, i) => (
           <span key={i}>🌟</span>
         ))}
       </span>
+
+      {!isEdit ? (
+        <button
+          className={style.reviewItemBtn}
+          onClick={() => {
+            setIsEdit(true);
+          }}
+        >
+          Edit
+        </button>
+      ) : (
+        <button
+          className={style.reviewItemBtn}
+          onClick={() => {
+            setIsEdit(false);
+          }}
+        >
+          Undo editing
+        </button>
+      )}
+      {isEdit && (
+        <ReviewForm reviewId={id} isEdit={isEdit} reviewItem={reviewItem} />
+      )}
     </div>
   );
 };
