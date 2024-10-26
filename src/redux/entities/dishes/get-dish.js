@@ -7,7 +7,7 @@ export const getDish = createAsyncThunk(
     const response = await fetch(`http://localhost:3001/api/dish/${dishId}`);
     const result = await response.json();
 
-    if (!result.name) {
+    if (result.name) {
       rejectWithValue("No dish");
       return;
     }
