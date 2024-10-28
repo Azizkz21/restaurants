@@ -1,0 +1,43 @@
+.reviewInner {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.reviewInner h3 {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.reviewInner p {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.reviewInner .reviewInnerSpan {
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.reviewItemBtn {
+  max-width: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 16px;
+  border: 2px solid var(--counterBtn);
+  background-color: transparent;
+  padding: 5px 5px;
+}
+
+.reviewItemBtn:hover {
+  opacity: 0.7;
+}
+
+.reviewItemBtn:focus {
+  opacity: 0.6;
+}
+
+.reviewItemBtn:active {
+  opacity: 1;
+}

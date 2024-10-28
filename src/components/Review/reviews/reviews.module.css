@@ -1,0 +1,29 @@
+.reviewsInner {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewsInner .reviewsList {
+  margin-bottom: 15px;
+}
+
+.reviewsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.reviewsItem {
+  border: 2px solid var(--counterBtn);
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
+.reviewsComment {
+  font-size: 16px;
+  line-height: 18px;
+  padding: 7px 10px;
+  border: 2px solid var(--counterBtn);
+  border-radius: 5px;
+}
