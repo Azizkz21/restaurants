@@ -1,4 +1,4 @@
-import style from "./HomePage.module.scss";
+import style from "./HomePage.module.css";
 export const HomePage = ({ title }) => {
   return (
     <section>

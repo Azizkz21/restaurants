@@ -1,5 +1,5 @@
 import { ReviewItem } from "../reviewItem/reviewItem";
-import style from "./reviews.module.scss";
+import style from "./reviews.module.css";
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { ReviewForm } from "../reviewForm/ReviewForm";
 import {

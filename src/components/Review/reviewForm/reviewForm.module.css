@@ -22,22 +22,22 @@
   border: 2px solid var(--counterBtn);
   background-color: transparent;
   box-sizing: border-box;
+}
 
-  &:hover {
-    opacity: 0.7;
-  }
+.formUserName:hover {
+  opacity: 0.7;
+}
 
-  &:focus {
-    opacity: 0.6;
-  }
+.formUserName:focus {
+  opacity: 0.6;
+}
 
-  &:active {
-    opacity: 1;
-  }
+.formUserName:active {
+  opacity: 1;
 }
 
 .formCommentBlock {
- height: 200px;
+  height: 200px;
 }
 
 .formCommentBlock textarea {
@@ -60,16 +60,16 @@
   border: 2px solid var(--counterBtn);
   background-color: transparent;
   padding: 10px 15px;
+}
 
-  &:hover {
-    opacity: 0.7;
-  }
+.formClear:hover {
+  opacity: 0.7;
+}
 
-  &:focus {
-    opacity: 0.6;
-  }
+.formClear:focus {
+  opacity: 0.6;
+}
 
-  &:active {
-    opacity: 1;
-  }
+.formClear:active {
+  opacity: 1;
 }

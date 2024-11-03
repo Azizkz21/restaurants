@@ -20,11 +20,11 @@
   opacity: 1;
   transform: scale(1);
   transition: all 0.7s ease;
+}
 
-  &:hover {
-    opacity: 0.5;
-    transform: scale(0.9);
-  }
+.restaurantsLink a:hover {
+  opacity: 0.5;
+  transform: scale(0.9);
 }
 
 .restaurantsTitle h2 {

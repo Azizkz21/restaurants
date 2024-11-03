@@ -1,5 +1,5 @@
 import {  useSelector } from "react-redux";
-import style from "./cart.module.scss";
+import style from "./cart.module.css";
 import { selectCartItems } from "../../../redux/ui/cart";
 import { CartItem } from "../cartItem/cartItem";
 import { DishCounter } from "../../Count/dishCounter/DishCounter";

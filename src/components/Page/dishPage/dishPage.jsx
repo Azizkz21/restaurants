@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import style from "./dishPage.module.scss";
+import style from "./dishPage.module.css";
 import { useLoginUser } from "../../Context/loginContext/useLoginUser";
 import { DishCounter } from "../../Count/dishCounter/DishCounter";
 import { useGetDishByIdQuery } from "../../../redux/services/api/api";

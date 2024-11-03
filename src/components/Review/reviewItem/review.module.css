@@ -28,16 +28,16 @@
   border: 2px solid var(--counterBtn);
   background-color: transparent;
   padding: 5px 5px;
+}
 
-  &:hover {
-    opacity: 0.7;
-  }
+.reviewItemBtn:hover {
+  opacity: 0.7;
+}
 
-  &:focus {
-    opacity: 0.6;
-  }
+.reviewItemBtn:focus {
+  opacity: 0.6;
+}
 
-  &:active {
-    opacity: 1;
-  }
+.reviewItemBtn:active {
+  opacity: 1;
 }

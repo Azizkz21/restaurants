@@ -14,18 +14,18 @@
   font-size: 36px;
   line-height: 36px;
   color: var(--color-accent);
+}
 
-  &:hover {
-    opacity: 0.5;
-  }
+.button:hover {
+  opacity: 0.5;
+}
 
-  &:focus {
-    opacity: 0.9;
-  }
+.button:focus {
+  opacity: 0.9;
+}
 
-  &:active {
-    opacity: 1;
-  }
+.button:active {
+  opacity: 1;
 }
 
 .button span {

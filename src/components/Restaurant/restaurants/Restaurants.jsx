@@ -1,4 +1,4 @@
-import style from "./restaurants.module.scss";
+import style from "./restaurants.module.css";
 import { NavLink, Outlet } from "react-router-dom";
 
 export const Restaurant = () => {

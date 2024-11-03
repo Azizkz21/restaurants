@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useWatch } from "./useWatch";
-import style from "./watch.module.scss";
+import style from "./watch.module.css";
 import classnames from "classnames";
 import { useTheme } from "../Context/themeContext/useTheme";
 

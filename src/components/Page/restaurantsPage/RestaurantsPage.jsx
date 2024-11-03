@@ -1,4 +1,4 @@
-import style from "./restaurantsPage.module.scss";
+import style from "./restaurantsPage.module.css";
 import { Outlet } from "react-router-dom";
 import { RestaurantTab } from "../../Tabs/restaurant-Tab/Restaurant-Tab";
 import { useGetRestaurantsQuery } from "../../../redux/services/api/api";

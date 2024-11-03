@@ -1,5 +1,5 @@
 import { useProgress } from "./useProgress";
-import styles from "./progress.module.scss";
+import styles from "./progress.module.css";
 
 export const ProgressBar = () => {
   const progress = useProgress();

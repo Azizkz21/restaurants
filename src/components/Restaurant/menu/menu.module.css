@@ -20,15 +20,15 @@
 
   transform: scale(1);
   transition: all 0.7s ease;
+}
 
-  &:hover {
-    transform: scale(0.9);
-  }
+.menuItem a:hover {
+  transform: scale(0.9);
+}
 
-  &::after {
-    position: absolute;
-    content: "more";
-    left: auto;
-    right: 10px;
-  }
+.menuItem a::after {
+  position: absolute;
+  content: "more";
+  left: auto;
+  right: 10px;
 }

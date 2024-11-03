@@ -1,26 +1,28 @@
-import { ThemeContextProvider } from "../Context/themeContext/themeContext";
-import { LoginContextProvider } from "../Context/loginContext/loginContext";
-import { Layout } from "../layout/Layout";
-import { RestaurantsPage } from "../Page/restaurantsPage/RestaurantsPage";
+"use client";
+
+import { ThemeContextProvider } from "./components/Context/themeContext/themeContext";
+import { LoginContextProvider } from "./components/Context/loginContext/loginContext";
+import { Layout } from "./components/layout/Layout";
+import { RestaurantsPage } from "./components/Page/restaurantsPage/RestaurantsPage";
 import { Provider } from "react-redux";
-import { store } from "../../redux/store";
+import { store } from "./redux/store";
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { RestaurantPage } from "../Page/restaurantPage/restaurantPage";
-import { HomePage } from "../Page/HomePage/HomePage";
-import { Menu } from "../Restaurant/menu/Menu";
-import { DishPage } from "../Page/dishPage/dishPage";
+import { RestaurantPage } from "./components/Page/restaurantPage/restaurantPage";
+import { HomePage } from "./components/Page/HomePage/HomePage";
+import { Menu } from "./components/Restaurant/menu/Menu";
+import { DishPage } from "./components/Page/dishPage/dishPage";
 
 // css style global
-import "./global/global.scss";
-import "./global/vars.scss";
-import "./global/base.scss";
-import "./global/utils.scss";
-import "./global/sticky-footer.scss";
-import { ReviewsPage } from "../Page/reviewsPage/reviewsPage";
+import "./components/global/global.css";
+import "./components/global/vars.css";
+import "./components/global/base.css";
+import "./components/global/utils.css";
+import "./components/global/sticky-footer.css";
+import { ReviewsPage } from "./components/Page/reviewsPage/reviewsPage";
 
 const router = createBrowserRouter([
   {
@@ -78,3 +80,5 @@ export const App = () => {
     </Provider>
   );
 };
+
+export default App;
